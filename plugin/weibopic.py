@@ -52,6 +52,8 @@ def downloadpic(url,dirpath):
     file_name = re.sub(r"^\S+/","",url)
     file_name = re.sub(r"\?\S+$","",file_name)
     file_path = os.path.join(dirpath,file_name)
+    if not os.path.exists(dirpath): 
+        os.makedirs(dirpath)
     download(url, file_path, True)
 
 def ircweibopicfun(irc_sock, nick, message):
